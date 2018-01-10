@@ -10,8 +10,9 @@ from ..models import BaseFormPlugin
 
 
 def forward_migration(apps, schema_editor):
+    from ..models import FieldPlugin
     db_alias = schema_editor.connection.alias
-    FieldPlugin = apps.get_model('aldryn_forms', 'FieldPlugin')
+    #FieldPlugin = apps.get_model('aldryn_forms', 'FieldPlugin')
     for field in FieldPlugin.objects.using(db_alias).iterator():
         for idx, option in enumerate(field.option_set.order_by('value'), start=1):
             option.position = idx * 10
