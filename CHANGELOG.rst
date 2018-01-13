@@ -12,6 +12,7 @@ Changelog
 * Introduced support for customizing the input's tag ``type`` attribute.
 * Introduced new ``Phone``, ``Number`` and ``Hidden`` fields.
 * Introduced custom attributes support for the forms and fields.
+* Refactored storage backends engine to be 'action backends'
 
 2.3.0 (2017-12-19)
 -------------------
