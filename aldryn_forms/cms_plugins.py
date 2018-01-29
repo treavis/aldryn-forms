@@ -230,6 +230,8 @@ class Fieldset(FieldContainer):
     render_template = True
     name = _('Fieldset')
     model = models.FieldsetPlugin
+    parent_classes = ['FormPlugin']
+    require_parent = True
 
     fieldsets = (
         (None, {
@@ -263,6 +265,8 @@ class Field(FormElement):
     # template name is calculated based on field
     render_template = True
     model = models.FieldPlugin
+    parent_classes = ['FormPlugin', 'Fieldset']
+    require_parent = True
 
     # Custom field related attributes
     form_field = None
@@ -865,6 +869,8 @@ class SubmitButton(FormElement):
     render_template = 'aldryn_forms/submit_button.html'
     name = _('Submit Button')
     model = models.FormButtonPlugin
+    parent_classes = ['FormPlugin']
+    require_parent = True
 
 
 plugin_pool.register_plugin(BooleanField)
